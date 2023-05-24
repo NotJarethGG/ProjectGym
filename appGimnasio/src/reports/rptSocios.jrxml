@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dd0c6c92-0ebd-4f40-905a-604b86e991ea">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tblsocios.`idSocio` AS tblsocios_idSocio,
+     tblsocios.`nombre` AS tblsocios_nombre,
+     tblsocios.`apellido1` AS tblsocios_apellido1,
+     tblsocios.`apellido2` AS tblsocios_apellido2,
+     tblsocios.`telefonoMovil` AS tblsocios_telefonoMovil,
+     tblsocios.`telefonoFijo` AS tblsocios_telefonoFijo,
+     tblsocios.`correo` AS tblsocios_correo
+FROM
+     `tblsocios` tblsocios]]>
+	</queryString>
+	<field name="tblsocios_idSocio" class="java.lang.Integer"/>
+	<field name="tblsocios_nombre" class="java.lang.String"/>
+	<field name="tblsocios_apellido1" class="java.lang.String"/>
+	<field name="tblsocios_apellido2" class="java.lang.String"/>
+	<field name="tblsocios_telefonoMovil" class="java.lang.String"/>
+	<field name="tblsocios_telefonoFijo" class="java.lang.String"/>
+	<field name="tblsocios_correo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1ab1b767-4343-41ff-8dfd-b576c56d5b2c" style="Title" x="187" y="0" width="263" height="62"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Socios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9d669821-c488-4b10-97ac-5b3c7590a3f4" style="SubTitle" x="219" y="62" width="196" height="22"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Reporte]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement uuid="09234ffe-a204-4f4a-b28e-ccc9d8aebf66" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="8d32b3fb-1bcd-4202-bc1b-ae05a66fb9f2" style="Column header" x="0" y="0" width="79" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6c1ccd5a-d7f5-4b7e-8bff-429abb110dd1" style="Column header" x="79" y="0" width="79" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="aa84b1f2-2747-49fa-a029-9001d1d15bda" style="Column header" x="158" y="0" width="79" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[1°Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bd23c2a9-0e1c-4c04-b5bc-29cd62d66fd5" style="Column header" x="237" y="0" width="79" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[2° Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eebecf72-3fb2-491d-b2f5-5dcf14b98daf" style="Column header" x="316" y="0" width="79" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Tel movil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="52ed2f00-9ba3-4f62-a74e-03730a119eb5" style="Column header" x="395" y="0" width="79" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Tel celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f85d4373-cefb-4832-bf79-77564d7155bc" style="Column header" x="474" y="0" width="79" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<frame>
+				<reportElement uuid="1638f446-0568-4c3b-8744-68adc6c6e8cd" style="Row" mode="Opaque" x="0" y="0" width="555" height="15"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="9cea028c-c819-4cf8-a69b-f027e41ad86b" style="Detail" x="0" y="0" width="79" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tblsocios_idSocio}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="de8c8405-2e92-4bca-b600-6d4caea5140b" style="Detail" x="79" y="0" width="79" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tblsocios_nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="25fe51f4-e7ed-4da4-96d2-37acfd4cd609" style="Detail" x="158" y="0" width="79" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tblsocios_apellido1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="81d16d16-06dd-47d9-8a33-94afcc6813c7" style="Detail" x="237" y="0" width="79" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tblsocios_apellido2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="077f89a6-fe88-4bcb-9202-71c81512788f" style="Detail" x="316" y="0" width="79" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tblsocios_telefonoMovil}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="b87b5b0c-e663-4217-8aee-3c75163dd0dc" style="Detail" x="395" y="0" width="79" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tblsocios_telefonoFijo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="268bebea-15b9-454c-91c7-d72b8fd71b1b" style="Detail" x="474" y="0" width="79" height="15"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tblsocios_correo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="bae63ea4-89ee-45b7-b067-86b6d894113a" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="6574816d-b2a3-4804-9088-d5621053ce10" mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="40e4c147-6a0b-4097-b65e-bdcbccaf5037" style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="f605a396-bc07-4209-bdc3-7c03b8ee13a9" style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="8f76ef96-7325-47b1-9548-d7eeb7f9f49c" style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

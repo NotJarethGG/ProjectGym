@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="31f8c4ae-327f-462f-b917-6a6f9a635f85">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT
+     tblsocios.`nombre`*tblsocios.`correo` AS Total,
+     tblsocios.`nombre` AS tblsocios_nombre,
+     tblsocios.`apellido1` AS tblsocios_apellido1,
+     tblsocios.`apellido2` AS tblsocios_apellido2,
+     tblsocios.`telefonoMovil` AS tblsocios_telefonoMovil,
+     tblsocios.`telefonoFijo` AS tblsocios_telefonoFijo,
+     tblsocios.`correo` AS tblsocios_correo,
+     tblregistroingreso.`fecha` AS tblregistroingreso_fecha,
+     tblsocios.`idSocio` AS tblsocios_idSocio
+FROM
+     `tblsocios` tblsocios INNER JOIN `tblregistroingreso` tblregistroingreso ON tblsocios.`idSocio` = tblregistroingreso.`idSocio`]]>
+	</queryString>
+	<field name="Total" class="java.lang.Double"/>
+	<field name="tblsocios_nombre" class="java.lang.String"/>
+	<field name="tblsocios_apellido1" class="java.lang.String"/>
+	<field name="tblsocios_apellido2" class="java.lang.String"/>
+	<field name="tblsocios_telefonoMovil" class="java.lang.String"/>
+	<field name="tblsocios_telefonoFijo" class="java.lang.String"/>
+	<field name="tblsocios_correo" class="java.lang.String"/>
+	<field name="tblregistroingreso_fecha" class="java.sql.Date"/>
+	<field name="tblsocios_idSocio" class="java.lang.Integer"/>
+	<group name="tblregistroingreso_fecha">
+		<groupExpression><![CDATA[$F{tblregistroingreso_fecha}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField pattern="dd/MM/yyyy">
+					<reportElement uuid="c57da2e7-bc98-4c94-b5ec-634a5d91405f" style="SubTitle" x="47" y="13" width="506" height="24" forecolor="#990099"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblregistroingreso_fecha}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement uuid="e1a02708-df72-414a-b755-cb7d86de94e3" mode="Opaque" x="0" y="13" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="94035427-a6c1-45ba-a5d6-0ea53de62dff" style="Title" x="0" y="13" width="379" height="33"/>
+				<textElement verticalAlignment="Middle">
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[Socios por ingreso de fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f289b36e-b27a-4b56-b074-0887cb8c38ed" style="SubTitle" x="63" y="46" width="200" height="22"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[GYM APJM]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement uuid="0d03c85d-33ed-4228-9c89-abc792f3e865" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="7581f72c-6e23-46be-b5fd-fae47e15b05f" style="Column header" x="0" y="19" width="79" height="15"/>
+				<textElement/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7fef9aa7-b62c-4295-ada1-cb8ab8e0d03c" style="Column header" x="79" y="19" width="79" height="15"/>
+				<textElement/>
+				<text><![CDATA[1° apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6e67da3b-ab0b-4512-a65e-69e6a797c3d5" style="Column header" x="158" y="19" width="79" height="15"/>
+				<textElement/>
+				<text><![CDATA[2° apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9dd35a6f-b59e-4b8c-bd8d-46044e224776" style="Column header" x="237" y="19" width="79" height="15"/>
+				<textElement/>
+				<text><![CDATA[telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3744ce96-a72b-4b46-882f-6c133741921d" style="Column header" x="316" y="19" width="79" height="15"/>
+				<textElement/>
+				<text><![CDATA[telefono ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="65e1dec4-1abc-4fe0-ae95-6a024f0e6467" style="Column header" x="395" y="19" width="79" height="15"/>
+				<textElement/>
+				<text><![CDATA[correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dec5b635-1080-440c-aa42-4a974cc630c7" style="Column header" x="474" y="19" width="79" height="15"/>
+				<textElement/>
+				<text><![CDATA[idSocio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="9d2d986a-0988-4bf0-9a18-fec281dc6085" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="d86f22bf-883c-4909-b71d-00266d282d8b" style="Detail" x="0" y="0" width="79" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblsocios_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1b9b41b9-b7ce-40f5-8818-3c67447d4fdd" style="Detail" x="79" y="0" width="79" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblsocios_apellido1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="afe16229-5314-4c84-8c4f-3f581ea288ed" style="Detail" x="158" y="0" width="79" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblsocios_apellido2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b1413c87-ce58-43a2-bbe5-7082b54adfa3" style="Detail" x="237" y="0" width="79" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblsocios_telefonoMovil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d28efb0f-86c3-4a09-bdea-2fb6d36b20ac" style="Detail" x="316" y="0" width="79" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblsocios_telefonoFijo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3388f8f3-2a40-4deb-be84-4f9aad95fbbe" style="Detail" x="395" y="0" width="79" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblsocios_correo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cfc497c6-081c-4a34-bbef-9ab63c35cffd" style="Detail" x="474" y="0" width="79" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblsocios_idSocio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="c74b6fa9-f441-418b-ad54-88cabecb7272" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="bdd2431a-0298-4b9e-826c-6599d8d24190" style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="43c804c6-5f72-4ec5-a473-b7951766c195" style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="48a9987f-9fa8-48a1-b154-a7eb0d27fa63" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af916c96-ecad-46ef-9f88-7862ed868edc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tblmembresocios.`idMembresia` AS tblmembresocios_idMembresia,
+     tblmembresocios.`idSocio` AS tblmembresocios_idSocio,
+     tblmembresocios.`fechaIni` AS tblmembresocios_fechaIni,
+     tblmembresocios.`fechaFin` AS tblmembresocios_fechaFin,
+     tblmembresocios.`activo` AS tblmembresocios_activo
+FROM
+     `tblmembresocios` tblmembresocios]]>
+	</queryString>
+	<field name="tblmembresocios_idMembresia" class="java.lang.Integer"/>
+	<field name="tblmembresocios_idSocio" class="java.lang.Integer"/>
+	<field name="tblmembresocios_fechaIni" class="java.sql.Date"/>
+	<field name="tblmembresocios_fechaFin" class="java.sql.Date"/>
+	<field name="tblmembresocios_activo" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<ellipse>
+				<reportElement uuid="ce6bb91d-0766-44df-a07a-4b038065ce24" x="71" y="0" width="343" height="55"/>
+			</ellipse>
+			<staticText>
+				<reportElement uuid="8ac11284-789d-472b-bfe5-010cb15afb22" style="Title" x="111" y="13" width="274" height="33"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Membresia de Socios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="44f2f0c5-026e-406e-a2a7-419a68cb6644" style="SubTitle" x="208" y="59" width="70" height="22"/>
+				<textElement/>
+				<text><![CDATA[Reporte]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement uuid="a3af6ac5-c744-4d70-b42a-e463fe4437ae" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="9133ec70-168a-4160-b023-6adc95fd0c79" style="Column header" x="0" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[ID Membresia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b59668b4-523d-4e41-89ea-2800e13c301c" style="Column header" x="111" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[ID Socio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="05d2759e-bff6-41f4-96c8-38e8c1cabbd6" style="Column header" x="222" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[Fecha ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="10a75a76-623d-4fa3-bbb2-b3777281fb99" style="Column header" x="333" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[Fecha salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dc9de657-8b47-4ea7-b21a-85c848db9942" style="Column header" x="444" y="19" width="111" height="15"/>
+				<textElement/>
+				<text><![CDATA[Activo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="3fa4fb80-1228-42a7-a445-76cf2f812780" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="71f51bba-fdba-4650-bf01-666b9c40f59d" style="Detail" x="0" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblmembresocios_idMembresia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c6e35ea5-ad02-49c2-a519-333ee0cf61f6" style="Detail" x="111" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblmembresocios_idSocio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="ae8304fe-f9f7-4a9b-a4ac-4e6eaecfb5a2" style="Detail" x="222" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblmembresocios_fechaIni}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="267faaa3-eb8e-4ce9-ad65-fd6eef0614ba" style="Detail" x="333" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tblmembresocios_fechaFin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d80ac68f-81be-49ea-b2b4-9730b05a3876" style="Detail" x="444" y="0" width="111" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[($F{tblmembresocios_activo}==true?"Activo":"Inactivo")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="e56bcfa1-039c-4e19-a556-e2e38e47b83a" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ddcaf314-b392-4656-8271-947c3f9775ca" style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="6ef5aaf9-fc90-433c-bc26-704f4605d3f8" style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="a853926b-a946-42b1-8586-3b32c5325615" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
